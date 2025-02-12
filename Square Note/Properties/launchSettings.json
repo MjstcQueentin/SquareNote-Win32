@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Square Note (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Square Note (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

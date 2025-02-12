@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Square_Note.QuickNoteWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Square_Note"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Square Note">
+
+
+    <Grid Background="{x:Bind note.BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <SolidColorBrush x:Key="TextControlForeground" Color="Black" />
+            <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="Transparent" />
+            <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="Transparent" />
+            <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="Black" />
+            <SolidColorBrush x:Key="TextControlForegroundFocused" Color="Black" />
+        </Grid.Resources>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <CommandBar x:Name="WindowCommandBar" Grid.Column="0" 
+                Background="{StaticResource AcrylicBackgroundFillColorDefaultBrush }" 
+                IsOpen="False" DefaultLabelPosition="Collapsed">
+                <AppBarButton x:Name="ShareButton" Icon="Share" Label="Partager" Click="ShareButton_Click"/>
+                <AppBarToggleButton x:Name="PinButton" Icon="Pin" Label="Garder au premier plan" Click="PinButton_Click"/>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton x:Name="DeleteButton" Icon="Delete" Label="Supprimer cette note" Click="DeleteButton_Click" />
+                    <AppBarButton Label="Changer de couleur">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE790;" />
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Jaune" Tag="0" Click="ColorSwitchMenuFlyoutItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE790;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Rouge" Tag="1" Click="ColorSwitchMenuFlyoutItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE790;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Bleu" Tag="2" Click="ColorSwitchMenuFlyoutItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE790;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Vert" Tag="3" Click="ColorSwitchMenuFlyoutItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE790;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton x:Name="NoteListButton" Icon="List" Label="Liste des notes" Click="NoteListButton_Click" />
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+
+            <Grid Grid.Column="1" x:Name="WindowTitleBar" Background="{StaticResource AcrylicBackgroundFillColorDefaultBrush }"/>
+        </Grid>
+
+
+        <TextBox Grid.Row="1" x:Name="BodyTextBox" 
+            TextWrapping="Wrap"
+            Text="{x:Bind note.Body}" 
+            BorderThickness="0"
+            TextChanged="BodyTextBox_TextChanged">
+        </TextBox>
+    </Grid>
+</Window>

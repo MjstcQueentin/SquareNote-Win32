@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Square_Note.MainWindowHelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Square_Note"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource LayerOnMicaBaseAltFillColorTransparentBrush}">
+
+    <Grid Padding="56 32" RowSpacing="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Expander Grid.Row="0" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+            <Expander.Header>
+                <Grid ColumnSpacing="16" RowSpacing="1" Padding="4 12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <SymbolIcon Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Symbol="Help" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1">À propos de Square Note</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12">3.0.0.0</TextBlock>
+                </Grid>
+            </Expander.Header>
+            <Expander.Content>
+                <StackPanel>
+                    <TextBlock>Square Note</TextBlock>
+                    <TextBlock>3.0.0.0</TextBlock>
+                    <TextBlock>(C) 2017-2025 Quentin Pugeat</TextBlock>
+                </StackPanel>
+            </Expander.Content>
+        </Expander>
+
+        <Expander Grid.Row="1" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+            <Expander.Header>
+                <Grid ColumnSpacing="16" RowSpacing="1" Padding="4 12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <SymbolIcon Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Symbol="Globe" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1">Trouver de l'aide</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12">Support en ligne sur lesmajesticiels.org</TextBlock>
+                </Grid>
+            </Expander.Header>
+            <Expander.Content>
+                <Button>Ouvrir la base de connaissances en ligne</Button>
+            </Expander.Content>
+        </Expander>
+    </Grid>
+</Page>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Square_Note.MainWindowQuickNotesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Square_Note"
+    xmlns:objects="using:Square_Note.Objects"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource LayerOnMicaBaseAltFillColorTransparentBrush}">
+
+    <StackPanel Padding="56 32">
+        <StackPanel.Resources>
+            <CommandBarFlyout x:Name="QuickNoteContextFlyout">
+                <CommandBarFlyout.SecondaryCommands>
+                    <AppBarButton x:Name="DeleteQuickNoteButton" 
+                        Label="Supprimer" Icon="Delete" ToolTipService.ToolTip="Supprimer"
+                        Click="DeleteQuickNoteButton_Click" />
+                </CommandBarFlyout.SecondaryCommands>
+            </CommandBarFlyout>
+        </StackPanel.Resources>
+
+        <Button 
+            x:Name="NewQuickNoteButton"
+             Style="{StaticResource AccentButtonStyle}"
+            Click="NewQuickNoteButton_Click"
+            Margin="0 0 0 6">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <SymbolIcon Symbol="Add" />
+                <TextBlock>Nouveau pense-bête</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <InfoBar x:Name="EmptyInfoBar" IsOpen="True" IsClosable="False"
+            Severity="Informational" Title="Bienvenue !"
+            Message="Lancez-vous, et créez votre premier pense-bête." />
+
+        <ItemsRepeater x:Name="MyItemsRepeater">
+            <DataTemplate x:DataType="objects:QuickNote">
+                <Grid 
+                    Background="{x:Bind BackgroundBrush}" 
+                    MinHeight="150" MinWidth="150" MaxWidth="300"
+                    CornerRadius="2" Tapped="Grid_Tapped" IsTapEnabled="True"
+                    RightTapped="Grid_RightTapped"
+                    ContextFlyout="{StaticResource QuickNoteContextFlyout}"
+                    Tag="{x:Bind ID}">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock 
+                        Grid.Row="0" 
+                        Text="{x:Bind Body}" 
+                        Foreground="Black" 
+                        TextWrapping="WrapWholeWords"
+                        Padding="12"/>
+                </Grid>
+            </DataTemplate>
+            
+            
+
+            <ItemsRepeater.Layout>
+                <UniformGridLayout MinRowSpacing="6" MinColumnSpacing="6" />
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>
+    </StackPanel>
+</Page>
