@@ -54,7 +54,7 @@ namespace Square_Note
             ShowMainWindow();
         }
 
-        public MainWindow? m_window;
+        public static MainWindow? m_window { get; private set; }
 
         public void ShowMainWindow()
         {

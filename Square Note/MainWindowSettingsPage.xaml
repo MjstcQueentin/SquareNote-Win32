@@ -9,7 +9,37 @@
     mc:Ignorable="d"
     Background="{ThemeResource LayerOnMicaBaseAltFillColorTransparentBrush}">
 
-    <Grid>
+    <Grid Padding="56 32" RowSpacing="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <Expander Grid.Row="0" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+            <Expander.Header>
+                <Grid ColumnSpacing="16" RowSpacing="1" Padding="4 12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <SymbolIcon Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Symbol="OpenFile" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1">Importer et exporter les données</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12">Import ou export des données en XML, import des données de SmartNet Square Note 2.x</TextBlock>
+                </Grid>
+            </Expander.Header>
+            <Expander.Content>
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <Button x:Name="ExportAllDataButton" Click="ExportAllDataButton_Click">Exporter les données de Square Note</Button>
+                    <Button x:Name="ImportAllDataButton" Click="ImportAllDataButton_Click">Importer les données de Square Note</Button>
+                </StackPanel>
+            </Expander.Content>
+        </Expander>
     </Grid>
 </Page>

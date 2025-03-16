@@ -12,7 +12,7 @@ namespace Square_Note.Providers
     internal class QuickNoteProvider
     {
         private static readonly XmlSerializer serializer = new(typeof(QuickNote));
-        private static readonly string RootRepertory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\QuickNotes\\";
+        public static readonly string RootRepertory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\QuickNotes\\";
 
         public static event EventHandler? QuickNotesModified;
 
