@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
+using Square_Note.Services;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -41,7 +42,7 @@ namespace Square_Note
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            if(!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote"))
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote"))
             {
                 Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote");
             }
@@ -54,22 +55,22 @@ namespace Square_Note
             ShowMainWindow();
         }
 
-        public static MainWindow? m_window { get; private set; }
+        public static MainWindow? TheMainWindow { get; private set; }
 
         public void ShowMainWindow()
         {
-            if(m_window is null)
+            if (TheMainWindow is null)
             {
-                m_window = new MainWindow();
-                m_window.Closed += OnMainWindowClosed;
+                TheMainWindow = new MainWindow();
+                TheMainWindow.Closed += OnMainWindowClosed;
             }
 
-            m_window.Activate();
+            TheMainWindow.Activate();
         }
 
         private void OnMainWindowClosed(object sender, WindowEventArgs args)
         {
-            m_window = null;
+            TheMainWindow = null;
         }
     }
 }

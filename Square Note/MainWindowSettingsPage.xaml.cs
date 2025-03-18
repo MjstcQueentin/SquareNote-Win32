@@ -1,13 +1,14 @@
 using Microsoft.UI.Xaml.Controls;
 using Square_Note.Objects;
 using Square_Note.Providers;
+using Square_Note.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 using Windows.Storage;
 using WinRT.Interop;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Square_Note
 {
@@ -15,7 +16,7 @@ namespace Square_Note
     {
         public MainWindowSettingsPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private async void ExportAllDataButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
@@ -27,7 +28,7 @@ namespace Square_Note
                 SuggestedFileName = "squarenote.xml",
             };
             savePicker.FileTypeChoices.Add("Fichier de données Square Note", [".xml"]);
-            nint windowHandle = WindowNative.GetWindowHandle(App.m_window);
+            nint windowHandle = WindowNative.GetWindowHandle(App.TheMainWindow);
             InitializeWithWindow.Initialize(savePicker, windowHandle);
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file == null) return;
@@ -65,7 +66,7 @@ namespace Square_Note
                 SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
             };
             openPicker.FileTypeFilter.Add(".xml");
-            nint windowHandle = WindowNative.GetWindowHandle(App.m_window);
+            nint windowHandle = WindowNative.GetWindowHandle(App.TheMainWindow);
             InitializeWithWindow.Initialize(openPicker, windowHandle);
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file == null) return;

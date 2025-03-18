@@ -1,4 +1,6 @@
 using Microsoft.UI.Xaml.Controls;
+using Square_Note.Services;
+using System.Diagnostics;
 
 namespace Square_Note
 {
@@ -7,6 +9,23 @@ namespace Square_Note
         public MainWindowHelpPage()
         {
             InitializeComponent();
+            MajesticielsUpdater.Instance.UpdateAvailable += MajesticielsUpdater_UpdateAvailable;
+            MajesticielsUpdater.Instance.CheckUpdatesNow();
+        }
+
+        private void MajesticielsUpdater_UpdateAvailable(object sender, MajesticielsUpdate e)
+        {
+            UpdateAvailableInfoBar.IsOpen = true;
+        }
+
+        private void UpdateAvailableInfoBarButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = MajesticielsUpdater.Instance.UpdateLocation,
+                UseShellExecute = true,
+                Arguments = MajesticielsUpdater.Instance.UpdateData?.NewVersion?.UpdateArgs
+            });
         }
     }
 }

@@ -104,5 +104,7 @@
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <ApplicationIcon>2019_SmartNetSquareNote_Icon.ico</ApplicationIcon>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
   </PropertyGroup>
 </Project>

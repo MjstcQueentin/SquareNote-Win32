@@ -12,7 +12,6 @@
     <Grid Padding="56 32" RowSpacing="4">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Expander Grid.Row="0" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">

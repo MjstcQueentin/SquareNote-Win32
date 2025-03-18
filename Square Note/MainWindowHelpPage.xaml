@@ -13,9 +13,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Expander Grid.Row="0" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+        <InfoBar Grid.Row="0" x:Name="UpdateAvailableInfoBar" IsOpen="False" IsClosable="False" Severity="Informational" Title="Mise à jour disponible !" Message="Une mise à jour pour Square Note est disponible.">
+            <InfoBar.ActionButton>
+                <Button Content="Installer maintenant" x:Name="UpdateAvailableInfoBarButton" Click="UpdateAvailableInfoBarButton_Click" />
+            </InfoBar.ActionButton>
+        </InfoBar>
+
+        <Expander Grid.Row="1" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
             <Expander.Header>
                 <Grid ColumnSpacing="16" RowSpacing="1" Padding="4 12">
                     <Grid.ColumnDefinitions>
@@ -43,7 +50,7 @@
             </Expander.Content>
         </Expander>
 
-        <Expander Grid.Row="1" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+        <Expander Grid.Row="2" IsExpanded="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
             <Expander.Header>
                 <Grid ColumnSpacing="16" RowSpacing="1" Padding="4 12">
                     <Grid.ColumnDefinitions>

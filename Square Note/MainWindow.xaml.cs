@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
+using Square_Note.Services;
 
 namespace Square_Note
 {
@@ -16,6 +17,14 @@ namespace Square_Note
 
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
+
+            MajesticielsUpdater.Instance.UpdateAvailable += MajesticielsUpdater_UpdateAvailable;
+            MajesticielsUpdater.Instance.CheckUpdatesNow();
+        }
+
+        private void MajesticielsUpdater_UpdateAvailable(object sender, MajesticielsUpdate e)
+        {
+            UpdateAvailableInfoBadge.Visibility = Visibility.Visible;
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)

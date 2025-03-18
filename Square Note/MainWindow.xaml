@@ -36,7 +36,11 @@
                 </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem Content="Aide" Tag="Square_Note.MainWindowHelpPage" Icon="Help" />
+                <NavigationViewItem Content="À propos de" Tag="Square_Note.MainWindowHelpPage" Icon="Help">
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="UpdateAvailableInfoBadge" Visibility="Collapsed" Style="{StaticResource AttentionIconInfoBadgeStyle}"></InfoBadge>
+                    </NavigationViewItem.InfoBadge>
+                </NavigationViewItem>
             </NavigationView.FooterMenuItems>
 
             <ScrollViewer>
@@ -54,6 +58,4 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>
-
-
 </Window>
