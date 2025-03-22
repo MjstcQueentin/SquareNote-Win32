@@ -23,7 +23,7 @@ namespace Square_Note.Services
         private static readonly string UpdaterUrl = "https://www.lesmajesticiels.org/api/update";
         private static readonly string ProductSlug = "squarenote";
         private static readonly string PlatformSlug = "win64";
-        private static readonly string ChannelSlug = "release";
+        private static readonly string ChannelSlug = "beta";
 
         public delegate void UpdateAvailableEventHandler(object sender, MajesticielsUpdate e);
         public event UpdateAvailableEventHandler? UpdateAvailable;
