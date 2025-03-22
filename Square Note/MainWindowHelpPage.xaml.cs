@@ -1,6 +1,7 @@
 using Microsoft.UI.Xaml.Controls;
 using Square_Note.Services;
 using System.Diagnostics;
+using Windows.ApplicationModel;
 
 namespace Square_Note
 {
@@ -11,6 +12,12 @@ namespace Square_Note
             InitializeComponent();
             MajesticielsUpdater.Instance.UpdateAvailable += MajesticielsUpdater_UpdateAvailable;
             MajesticielsUpdater.Instance.CheckUpdatesNow();
+
+            VersionNumberTextBlock.Text = string.Format("Version {0}.{1}.{2}.{3}",
+                    Package.Current.Id.Version.Major,
+                    Package.Current.Id.Version.Minor,
+                    Package.Current.Id.Version.Build,
+                    Package.Current.Id.Version.Revision);
         }
 
         private void MajesticielsUpdater_UpdateAvailable(object sender, MajesticielsUpdate e)
