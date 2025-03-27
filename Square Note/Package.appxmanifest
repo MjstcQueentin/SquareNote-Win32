@@ -9,7 +9,7 @@
 
   <Identity
     Name="f1018d45-d208-405c-aaf7-35481065895d"
-    Publisher="CN=quent"
+    Publisher="CN=Quentin Pugeat"
     Version="3.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="f1018d45-d208-405c-aaf7-35481065895d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
