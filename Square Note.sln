@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Square Note", "Square Note\Square Note.csproj", "{B0A42707-4144-4CA6-AE42-88FA6192E1D9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Square Note MSI", "Square Note MSI\Square Note MSI.vdproj", "{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,18 @@ Global
 		{B0A42707-4144-4CA6-AE42-88FA6192E1D9}.Release|x86.ActiveCfg = Release|x86
 		{B0A42707-4144-4CA6-AE42-88FA6192E1D9}.Release|x86.Build.0 = Release|x86
 		{B0A42707-4144-4CA6-AE42-88FA6192E1D9}.Release|x86.Deploy.0 = Release|x86
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Debug|ARM64.ActiveCfg = Debug
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Debug|x64.ActiveCfg = Debug
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Debug|x86.ActiveCfg = Debug
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Release|ARM64.ActiveCfg = Release
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Release|x64.ActiveCfg = Release
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Release|x64.Build.0 = Release
+		{EA1CD4F8-68A2-EA28-B5BC-21A95A43BBED}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C2B7803-699E-41D1-927C-12666AA31953}
 	EndGlobalSection
 EndGlobal
