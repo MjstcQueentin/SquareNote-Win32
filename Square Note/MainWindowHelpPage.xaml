@@ -38,13 +38,12 @@
                     <SymbolIcon Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Symbol="Help" />
 
                     <TextBlock Grid.Row="0" Grid.Column="1">À propos de Square Note</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12">3.0.0.0</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12" x:Name="VersionNumberTextBlock"></TextBlock>
                 </Grid>
             </Expander.Header>
             <Expander.Content>
                 <StackPanel>
-                    <TextBlock>Square Note</TextBlock>
-                    <TextBlock>3.0.0.0</TextBlock>
+                    <TextBlock>Le logiciel de pense-bêtes qui respecte votre vie privée.</TextBlock>
                     <TextBlock>(C) 2017-2025 Quentin Pugeat</TextBlock>
                 </StackPanel>
             </Expander.Content>
