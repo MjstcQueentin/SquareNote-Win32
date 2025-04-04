@@ -24,7 +24,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <BitmapIcon UriSource="ms-appx:///2019_SmartNetSquareNote_Icon.ico" Width="16" ShowAsMonochrome="False"/>
+            <BitmapIcon UriSource="ms-appx:///SquareNoteIcon.ico" Width="16" ShowAsMonochrome="False"/>
             <TextBlock Grid.Column="1" FontSize="12">Square Note</TextBlock>
         </Grid>
         <NavigationView x:Name="NavView" Grid.Row="1" IsBackButtonVisible="Collapsed" Loaded="NavView_Loaded" SelectionChanged="NavView_SelectionChanged">
