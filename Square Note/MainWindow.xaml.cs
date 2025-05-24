@@ -24,7 +24,10 @@ namespace Square_Note
 
         private void MajesticielsUpdater_UpdateAvailable(object sender, MajesticielsUpdate e)
         {
-            UpdateAvailableInfoBadge.Visibility = Visibility.Visible;
+            if (e.UpdateAvailable)
+            {
+                UpdateAvailableInfoBadge.Visibility = Visibility.Visible;
+            }
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)

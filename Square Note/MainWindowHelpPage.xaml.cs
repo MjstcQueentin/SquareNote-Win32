@@ -18,7 +18,10 @@ namespace Square_Note
 
         private void MajesticielsUpdater_UpdateAvailable(object sender, MajesticielsUpdate e)
         {
-            UpdateAvailableInfoBar.IsOpen = true;
+            if (e.UpdateAvailable)
+            {
+                UpdateAvailableInfoBar.IsOpen = true;
+            }
         }
 
         private void UpdateAvailableInfoBarButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

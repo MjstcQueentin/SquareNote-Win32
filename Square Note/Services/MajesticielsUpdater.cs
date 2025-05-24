@@ -58,7 +58,6 @@ namespace Square_Note.Services
                     $"{UpdaterUrl}?product={ProductSlug}&platform={PlatformSlug}&channel={ChannelSlug}&current_version={CurrentVersion}"
                 );
 
-                Console.WriteLine(response);
                 if (response == null) return;
                 UpdateData = response;
 
