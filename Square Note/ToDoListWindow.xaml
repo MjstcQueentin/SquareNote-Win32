@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Square_Note.ToDoListWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Square_Note"
+    xmlns:objects="using:Square_Note.Objects"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="To-Do List">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <StackPanel>
+        <Grid x:Name="WindowTitleBar" Height="31"></Grid>
+
+        <Grid Padding="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" FontSize="24" FontWeight="SemiBold" x:Name="TitleTextBlock"></TextBlock>
+            <Button Grid.Column="1" x:Name="EditTitleButton" Click="EditTitleButton_Click" ToolTipService.ToolTip="Modifier le titre...">
+                <Button.Content>
+                    <FontIcon Glyph="&#xEF60;" FontSize="16" />
+                </Button.Content>
+            </Button>
+        </Grid>
+        
+        <ItemsRepeater x:Name="MyItemsRepeater">
+            <DataTemplate x:DataType="objects:ToDoListItem">
+                <TextBlock Text="{x:Bind Label}" />
+            </DataTemplate>
+
+            <ItemsRepeater.Layout>
+                <StackLayout />
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>
+    </StackPanel>
+</Window>

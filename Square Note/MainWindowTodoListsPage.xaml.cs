@@ -17,7 +17,7 @@ namespace Square_Note
             InitializeComponent();
 
             LoadTodoLists();
-            ToDoListProvider.ToDoListsModified += ToDoListProvider_ToDoListsModified; ;
+            ToDoListProvider.ToDoListsModified += ToDoListProvider_ToDoListsModified;
         }
 
         private void ToDoListProvider_ToDoListsModified(object? sender, EventArgs e)
@@ -44,6 +44,14 @@ namespace Square_Note
         private void DeleteListButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ToDoListButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int id = (int)btn.Tag;
+            ToDoListWindow w = new(ToDoListProvider.GetToDoList(id));
+            w.Activate();
         }
     }
 }

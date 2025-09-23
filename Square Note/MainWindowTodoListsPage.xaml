@@ -32,7 +32,7 @@
 
         <ItemsRepeater x:Name="MyItemsRepeater">
             <DataTemplate x:DataType="objects:ToDoList">
-                <Button>
+                <Button x:Name="ToDoListButton" Click="ToDoListButton_Click" Tag="{x:Bind ID}">
                     <TextBlock Text="{x:Bind Title}" />
                 </Button>
             </DataTemplate>
