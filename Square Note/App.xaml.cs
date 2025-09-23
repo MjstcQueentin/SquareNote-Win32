@@ -52,6 +52,11 @@ namespace Square_Note
                 Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\QuickNotes");
             }
 
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\ToDoLists"))
+            {
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\ToDoLists");
+            }
+
             ShowMainWindow();
         }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Square_Note.MainWindowTodoListsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Square_Note"
+    xmlns:objects="using:Square_Note.Objects"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Padding="56 32">
+        <StackPanel.Resources>
+            <CommandBarFlyout x:Name="QuickNoteContextFlyout">
+                <CommandBarFlyout.SecondaryCommands>
+                    <AppBarButton
+                    Label="Supprimer" Icon="Delete" ToolTipService.ToolTip="Supprimer" x:Name="DeleteListButton" Click="DeleteListButton_Click" />
+                </CommandBarFlyout.SecondaryCommands>
+            </CommandBarFlyout>
+        </StackPanel.Resources>
+
+        <Button Style="{StaticResource AccentButtonStyle}" Margin="0 0 0 6" x:Name="NewListButton" Click="NewListButton_Click">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <SymbolIcon Symbol="Add" />
+                <TextBlock>Nouvelle liste</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <InfoBar x:Name="EmptyInfoBar" IsOpen="True" IsClosable="False"
+        Severity="Informational" Title="Bienvenue !"
+        Message="Lancez-vous, et créez votre première liste." />
+
+        <ItemsRepeater x:Name="MyItemsRepeater">
+            <DataTemplate x:DataType="objects:ToDoList">
+                <Button>
+                    <TextBlock Text="{x:Bind Title}" />
+                </Button>
+            </DataTemplate>
+
+            <ItemsRepeater.Layout>
+                <StackLayout />
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>
+    </StackPanel>
+</Page>

@@ -49,6 +49,9 @@ namespace Square_Note
                     default:
                         NavView_Navigate(typeof(MainWindowQuickNotesPage), args.RecommendedNavigationTransitionInfo);
                         break;
+                    case "Square_Note.MainWindowTodoListsPage":
+                        NavView_Navigate(typeof(MainWindowTodoListsPage), args.RecommendedNavigationTransitionInfo);
+                        break;
                     case "Square_Note.MainWindowHelpPage":
                         NavView_Navigate(typeof(MainWindowHelpPage), args.RecommendedNavigationTransitionInfo);
                         break;

@@ -34,6 +34,11 @@
                         <FontIcon Glyph="&#xE70B;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Content="Listes" Tag="Square_Note.MainWindowTodoListsPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE9D5;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem Content="À propos de" Tag="Square_Note.MainWindowHelpPage" Icon="Help">
