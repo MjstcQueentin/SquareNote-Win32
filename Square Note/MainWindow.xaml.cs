@@ -1,9 +1,10 @@
-using System;
-using System.Linq;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Square_Note.Services;
+using System;
+using System.Linq;
 
 namespace Square_Note
 {
@@ -17,6 +18,7 @@ namespace Square_Note
 
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
+            AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
             MajesticielsUpdater.Instance.UpdateAvailable += MajesticielsUpdater_UpdateAvailable;
             MajesticielsUpdater.Instance.CheckUpdatesNow();
