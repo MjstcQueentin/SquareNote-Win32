@@ -32,8 +32,17 @@
 
         <ItemsRepeater x:Name="MyItemsRepeater">
             <DataTemplate x:DataType="objects:ToDoList">
-                <Button x:Name="ToDoListButton" Click="ToDoListButton_Click" Tag="{x:Bind ID}">
-                    <TextBlock Text="{x:Bind Title}" />
+                <Button x:Name="ToDoListButton" Click="ToDoListButton_Click" Tag="{x:Bind ID}" Margin="0 0 0 6">
+                    <StackPanel Orientation="Horizontal" Spacing="16">
+                        <SymbolIcon Symbol="List" Grid.Column="0" />
+
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                            <TextBlock Text="{x:Bind Title}" />
+                            <TextBlock Text="X éléments" Style="{StaticResource CaptionTextBlockStyle}" />
+                        </StackPanel>
+
+                        <FontIcon Glyph="&#xE8A7;" Grid.Column="2" />
+                    </StackPanel>
                 </Button>
             </DataTemplate>
 
