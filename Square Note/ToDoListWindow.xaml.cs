@@ -86,5 +86,11 @@ namespace Square_Note
             CurrentList.Items[index].Checked = c.IsChecked ?? false;
             ToDoListProvider.SaveToDoList(CurrentList);
         }
+
+        private void DeleteListButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToDoListProvider.DeleteToDoList(CurrentList.ID);
+            Close();
+        }
     }
 }

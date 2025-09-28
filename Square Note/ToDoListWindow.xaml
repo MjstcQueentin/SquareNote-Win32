@@ -38,7 +38,16 @@
                 </Button.Content>
                 <Button.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem Text="Renommer la liste..." x:Name="EditTitleButton" Click="EditTitleButton_Click"/>
+                        <MenuFlyoutItem Text="Renommer la liste..." x:Name="EditTitleButton" Click="EditTitleButton_Click">
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Edit" />
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Supprimer la liste" x:Name="DeleteListButton" Click="DeleteListButton_Click">
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Delete" />
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Afficher la fenêtre principale" x:Name="DisplayMainWindowButton" Click="DisplayMainWindowButton_Click"/>
                     </MenuFlyout>
