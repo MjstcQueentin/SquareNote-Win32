@@ -50,8 +50,7 @@ namespace Square_Note
         {
             Button btn = (Button)sender;
             int id = (int)btn.Tag;
-            ToDoListWindow w = new(ToDoListProvider.GetToDoList(id));
-            w.Activate();
+            App.ShowToDoListWindow(id);
         }
     }
 }

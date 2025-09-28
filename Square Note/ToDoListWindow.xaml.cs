@@ -12,7 +12,7 @@ namespace Square_Note
     /// </summary>
     public sealed partial class ToDoListWindow : Window
     {
-        readonly ToDoList CurrentList;
+        public ToDoList CurrentList { get; private set; }
 
         public ToDoListWindow(ToDoList list)
         {
