@@ -62,6 +62,16 @@ namespace Square_Note
             App.ShowMainWindow();
         }
 
+        private void NewItemTextBox_KeyDown(object sender, Microsoft.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                CurrentList.PrependItem(new(NewItemTextBox.Text));
+                MyItemsRepeater.ItemsSource = CurrentList.Items;
+                ToDoListProvider.SaveToDoList(CurrentList);
+            }
+        }
+
         private void AddItemButton_Click(object sender, RoutedEventArgs e)
         {
             CurrentList.PrependItem(new(NewItemTextBox.Text));

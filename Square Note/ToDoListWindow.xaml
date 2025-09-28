@@ -74,8 +74,10 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0" x:Name="NewItemTextBox"></TextBox>
-            <Button Grid.Column="1" x:Name="AddItemButton" Click="AddItemButton_Click">Add</Button>
+            <TextBox Grid.Column="0" x:Name="NewItemTextBox" PlaceholderText="Nouvel élément" KeyDown="NewItemTextBox_KeyDown" />
+            <Button Grid.Column="1" x:Name="AddItemButton" Click="AddItemButton_Click">
+                <SymbolIcon Symbol="Add" />
+            </Button>
         </Grid>
     </Grid>
 </Window>
