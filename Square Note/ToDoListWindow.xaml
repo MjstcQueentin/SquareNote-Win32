@@ -14,15 +14,23 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <StackPanel>
-        <Grid x:Name="WindowTitleBar" Height="31"></Grid>
+    <Grid RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <Grid Padding="8">
+        <Grid x:Name="WindowTitleBar" Grid.Row="0"></Grid>
+
+        <Grid Padding="16 0" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            
+
             <TextBlock Grid.Column="0" FontSize="24" FontWeight="SemiBold" x:Name="TitleTextBlock"></TextBlock>
             <Button Grid.Column="1" x:Name="EditTitleButton" Click="EditTitleButton_Click" ToolTipService.ToolTip="Modifier le titre...">
                 <Button.Content>
@@ -30,15 +38,37 @@
                 </Button.Content>
             </Button>
         </Grid>
-        
-        <ItemsRepeater x:Name="MyItemsRepeater">
+
+        <InfoBar IsOpen="True" IsClosable="False" Margin="16 0" Grid.Row="2" x:Name="EmptyListInfoBar">
+            <InfoBar.Title>Aucun élément.</InfoBar.Title>
+        </InfoBar>
+
+        <ItemsRepeater x:Name="MyItemsRepeater" Grid.Row="3" Margin="16 0">
             <DataTemplate x:DataType="objects:ToDoListItem">
-                <TextBlock Text="{x:Bind Label}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox IsChecked="{x:Bind Checked}" Content="{x:Bind Label}"
+                              x:Name="ItemCheckbox" Click="ItemCheckbox_Click"
+                              Tag="{x:Bind Index}"  Grid.Column="0" />
+                </Grid>
             </DataTemplate>
 
             <ItemsRepeater.Layout>
                 <StackLayout />
             </ItemsRepeater.Layout>
         </ItemsRepeater>
-    </StackPanel>
+
+        <Grid Grid.Row="4" Padding="16" ColumnSpacing="8" Background="{StaticResource LayerOnMicaBaseAltFillColorDefault}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" x:Name="NewItemTextBox"></TextBox>
+            <Button Grid.Column="1" x:Name="AddItemButton" Click="AddItemButton_Click">Add</Button>
+        </Grid>
+    </Grid>
 </Window>
