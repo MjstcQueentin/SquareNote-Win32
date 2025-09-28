@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Square_Note.Objects;
 using Square_Note.Providers;
+using System;
 using Windows.Graphics;
 
 namespace Square_Note
@@ -31,9 +32,29 @@ namespace Square_Note
             EmptyListInfoBar.IsOpen = list.Items.Length == 0;
         }
 
-        private void EditTitleButton_Click(object sender, RoutedEventArgs e)
+        private async void EditTitleButton_Click(object sender, RoutedEventArgs e)
         {
+            ContentDialog dialog = new();
+            ToDoListWindowEditTitleDialog dialogContent = new(CurrentList.Title);
 
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = "Changer le titre";
+            dialog.PrimaryButtonText = "Enregistrer";
+            dialog.IsSecondaryButtonEnabled = false;
+            dialog.CloseButtonText = "Annuler";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = dialogContent;
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                CurrentList.Title = dialogContent.InputText;
+                TitleTextBlock.Text = CurrentList.Title;
+                Title = CurrentList.Title;
+                ToDoListProvider.SaveToDoList(CurrentList);
+            }
         }
 
         private void DisplayMainWindowButton_Click(object sender, RoutedEventArgs e)
