@@ -63,7 +63,7 @@ namespace Square_Note
 
         public static MainWindow? TheMainWindow { get; private set; }
 
-        public void ShowMainWindow()
+        public static void ShowMainWindow()
         {
             if (TheMainWindow is null)
             {
@@ -74,7 +74,7 @@ namespace Square_Note
             TheMainWindow.Activate();
         }
 
-        private void OnMainWindowClosed(object sender, WindowEventArgs args)
+        private static void OnMainWindowClosed(object sender, WindowEventArgs args)
         {
             TheMainWindow = null;
         }

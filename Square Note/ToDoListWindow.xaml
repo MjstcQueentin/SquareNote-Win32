@@ -32,10 +32,17 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="24" FontWeight="SemiBold" x:Name="TitleTextBlock"></TextBlock>
-            <Button Grid.Column="1" x:Name="EditTitleButton" Click="EditTitleButton_Click" ToolTipService.ToolTip="Modifier le titre...">
+            <Button Grid.Column="1" ToolTipService.ToolTip="Options...">
                 <Button.Content>
-                    <FontIcon Glyph="&#xEF60;" FontSize="16" />
+                    <FontIcon Glyph="&#xEDE3;" FontSize="16" />
                 </Button.Content>
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Renommer la liste..." x:Name="EditTitleButton" Click="EditTitleButton_Click"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="Afficher la fenêtre principale" x:Name="DisplayMainWindowButton" Click="DisplayMainWindowButton_Click"/>
+                    </MenuFlyout>
+                </Button.Flyout>
             </Button>
         </Grid>
 

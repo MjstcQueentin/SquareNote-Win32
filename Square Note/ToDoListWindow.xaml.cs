@@ -36,6 +36,11 @@ namespace Square_Note
 
         }
 
+        private void DisplayMainWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ShowMainWindow();
+        }
+
         private void AddItemButton_Click(object sender, RoutedEventArgs e)
         {
             CurrentList.PrependItem(new(NewItemTextBox.Text));
