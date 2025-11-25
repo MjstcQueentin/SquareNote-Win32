@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Square_Note.Objects
 {
@@ -12,6 +10,11 @@ namespace Square_Note.Objects
         public DateTime CreateTime;
         public DateTime? UpdateTime;
         public bool IsDeleted;
+
+        public int Length
+        {
+            get { return Items.Length; }
+        }
 
         public ToDoList()
         {

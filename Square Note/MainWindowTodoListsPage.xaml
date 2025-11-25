@@ -38,7 +38,10 @@
 
                         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
                             <TextBlock Text="{x:Bind Title}" />
-                            <TextBlock Text="X éléments" Style="{StaticResource CaptionTextBlockStyle}" />
+                            <StackPanel Orientation="Horizontal" Spacing="3">
+                                <TextBlock Text="{x:Bind Length}" Style="{StaticResource CaptionTextBlockStyle}" />
+                                <TextBlock Text="éléments" Style="{StaticResource CaptionTextBlockStyle}" />
+                            </StackPanel>
                         </StackPanel>
 
                         <FontIcon Glyph="&#xE8A7;" Grid.Column="2" />
