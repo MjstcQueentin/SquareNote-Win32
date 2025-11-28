@@ -92,5 +92,42 @@ namespace Square_Note
             ToDoListProvider.DeleteToDoList(CurrentList.ID);
             Close();
         }
+
+        private async void EditElementFlyoutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            int Index = (int)((MenuFlyoutItem)sender).Tag;
+            ContentDialog dialog = new();
+            ToDoListWindowEditTitleDialog dialogContent = new(CurrentList.Items[Index].Label);
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = "Modifier l'élément";
+            dialog.PrimaryButtonText = "Enregistrer";
+            dialog.IsSecondaryButtonEnabled = false;
+            dialog.CloseButtonText = "Annuler";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = dialogContent;
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                CurrentList.ReplaceItem(Index, new()
+                {
+                    Label = dialogContent.InputText,
+                    Checked = CurrentList.Items[Index].Checked
+                });
+                MyItemsRepeater.ItemsSource = CurrentList.Items.Clone();
+                ToDoListProvider.SaveToDoList(CurrentList);
+            }
+        }
+
+        private void DeleteElementFlyoutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            int Index = (int)((MenuFlyoutItem)sender).Tag;
+            CurrentList.RemoveItemAt(Index);
+            MyItemsRepeater.ItemsSource = CurrentList.Items;
+            ToDoListProvider.SaveToDoList(CurrentList);
+        }
     }
 }

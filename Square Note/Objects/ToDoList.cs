@@ -38,6 +38,27 @@ namespace Square_Note.Objects
             Items = [item, .. Items];
             UpdateIndices();
         }
+
+        public void ReplaceItem(int index, ToDoListItem item)
+        {
+            Items[index] = item;
+            UpdateIndices();
+        }
+
+        public void RemoveItemAt(int index)
+        {
+            // Créer un nouveau tableau avec une taille réduite
+            ToDoListItem[] nouveauTableau = new ToDoListItem[Items.Length - 1];
+
+            // Copier les éléments avant l'index
+            Array.Copy(Items, 0, nouveauTableau, 0, index);
+
+            // Copier les éléments après l'index
+            Array.Copy(Items, index + 1, nouveauTableau, index, Items.Length - index - 1);
+
+            Items = nouveauTableau;
+            UpdateIndices();
+        }
     }
 
     public class ToDoListItem

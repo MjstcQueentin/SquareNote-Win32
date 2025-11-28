@@ -68,7 +68,22 @@
 
                     <CheckBox IsChecked="{x:Bind Checked}" Content="{x:Bind Label}"
                               x:Name="ItemCheckbox" Click="ItemCheckbox_Click"
-                              Tag="{x:Bind Index}"  Grid.Column="0" />
+                              Tag="{x:Bind Index}"  Grid.Column="0">
+                        <CheckBox.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Modifier le texte..." Tag="{x:Bind Index}" x:Name="EditElementFlyoutMenuItem" Click="EditElementFlyoutMenuItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Edit" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Supprimer l'élément" Tag="{x:Bind Index}" x:Name="DeleteElementFlyoutMenuItem" Click="DeleteElementFlyoutMenuItem_Click">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Delete" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout>
+                        </CheckBox.ContextFlyout>
+                    </CheckBox>
                 </Grid>
             </DataTemplate>
 
