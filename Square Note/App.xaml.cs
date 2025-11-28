@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
+using Square_Note.Providers;
 using Square_Note.Services;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -52,12 +53,17 @@ namespace Square_Note
                 Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\QuickNotes");
             }
 
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\ToDoLists"))
+            {
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SquareNote\\ToDoLists");
+            }
+
             ShowMainWindow();
         }
 
         public static MainWindow? TheMainWindow { get; private set; }
 
-        public void ShowMainWindow()
+        public static void ShowMainWindow()
         {
             if (TheMainWindow is null)
             {
@@ -68,9 +74,46 @@ namespace Square_Note
             TheMainWindow.Activate();
         }
 
-        private void OnMainWindowClosed(object sender, WindowEventArgs args)
+        private static void OnMainWindowClosed(object sender, WindowEventArgs args)
         {
             TheMainWindow = null;
+        }
+
+        public static LinkedList<ToDoListWindow>? ToDoListWindows { get; private set; }
+
+        /// <summary>
+        /// Afficher une to-do list dans une fenêtre dédiée.
+        /// Si une fenêtre de ladite list existe encore, elle est placée au premier plan.
+        /// Sinon la fenêtre est crée.
+        /// </summary>
+        /// <param name="ToDoListID">ID de la liste</param>
+        public static void ShowToDoListWindow(int ToDoListID)
+        {
+            // Chercher la fenêtre existante
+            ToDoListWindows ??= new LinkedList<ToDoListWindow>();
+            ToDoListWindow? existingWindow = ToDoListWindows.FirstOrDefault(w => w.CurrentList.ID == ToDoListID);
+
+            if (existingWindow is not null)
+            {
+                // Elle existe déjà, on la place au premier plan
+                existingWindow.Activate();
+                return;
+            }
+            else
+            {
+                // Elle n'existe pas, on l'instancie
+                ToDoListWindow window = new(ToDoListProvider.GetToDoList(ToDoListID));
+                ToDoListWindows.AddLast(window);
+
+                // La retirer de la liste quand elle est fermée
+                window.Closed += (s, e) =>
+                {
+                    ToDoListWindows?.Remove(window);
+                };
+
+                // Placer au premier plan
+                window.Activate();
+            }
         }
     }
 }

@@ -14,11 +14,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="AppTitleBar" Grid.Row="0" Padding="8 16" ColumnSpacing="6">
+        <Grid x:Name="AppTitleBar" Grid.Row="0" Padding="8 15.5" ColumnSpacing="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="32"/>
                 <ColumnDefinition/>
@@ -32,6 +32,11 @@
                 <NavigationViewItem Content="Pense-bêtes" Tag="Square_Note.MainWindowQuickNotesPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE70B;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Listes" Tag="Square_Note.MainWindowTodoListsPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE9D5;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>

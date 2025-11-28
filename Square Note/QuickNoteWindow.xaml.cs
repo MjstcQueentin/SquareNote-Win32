@@ -81,8 +81,7 @@ namespace Square_Note
 
         private void NoteListButton_Click(object sender, RoutedEventArgs e)
         {
-            App? a = Application.Current as App;
-            a?.ShowMainWindow();
+            App.ShowMainWindow();
         }
 
         private void ColorSwitchMenuFlyoutItem_Click(object sender, RoutedEventArgs e)

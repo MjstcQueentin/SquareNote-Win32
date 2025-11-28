@@ -37,7 +37,10 @@
     <None Remove="MainWindowHelpPage.xaml" />
     <None Remove="MainWindowQuickNotesPage.xaml" />
     <None Remove="MainWindowSettingsPage.xaml" />
+    <None Remove="MainWindowTodoListsPage.xaml" />
     <None Remove="QuickNoteWindow.xaml" />
+    <None Remove="ToDoListWindow.xaml" />
+    <None Remove="ToDoListWindowEditTitleDialog.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,8 +69,23 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DebounceThrottle" Version="3.0.1" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250108002" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7175" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251106002" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ToDoListWindowEditTitleDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ToDoListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindowTodoListsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="QuickNoteWindow.xaml">
@@ -107,8 +125,9 @@
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <ApplicationIcon>SquareNoteIcon.ico</ApplicationIcon>
-    <AssemblyVersion>3.0.0.1</AssemblyVersion>
-    <FileVersion>3.0.0.1</FileVersion>
-    <Version>3.0.0</Version>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
+    <Version>3.1.0</Version>
+    <NeutralLanguage>fr-FR</NeutralLanguage>
   </PropertyGroup>
 </Project>
